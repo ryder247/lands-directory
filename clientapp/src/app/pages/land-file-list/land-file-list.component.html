@@ -1,0 +1,210 @@
+<div class="container-fluid mt-3">
+  <div class="my-4">
+    <form #f="ngForm" (ngSubmit)="onGeneralSearch()">
+      <div class="form-group">
+        <label for="searchTerm">General Search</label>
+        <input
+          id="searchTerm"
+          type="text"
+          class="form-control"
+          name="searchTerm"
+          [(ngModel)]="model.searchTerm"
+        />
+      </div>
+      <div class="row" *ngIf="toggleAdvanceSearch">
+        <div class="col">
+          <div class="form-group">
+            <label for="termYears">Term Years</label>
+            <input
+              id="termYears"
+              type="text"
+              class="form-control"
+              name="termYears"
+              [(ngModel)]="model.termYears"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="natureOfInstrument">Nature Of Instrument</label>
+            <input
+              id="natureOfInstrument"
+              type="text"
+              class="form-control"
+              name="natureOfInstrument"
+              [(ngModel)]="model.natureOfInstrument"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="purpose">Purpose</label>
+            <input
+              id="purpose"
+              type="text"
+              class="form-control"
+              name="purpose"
+              [(ngModel)]="model.purpose"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary mr-3">Search</button>
+          <button type="button" class="btn btn-danger mr-3" (click)="clear()">
+            Clear
+          </button>
+        </div>
+        <div class="col d-flex justify-content-end">
+          <button
+            type="button"
+            class="btn btn-light text-right"
+            (click)="toggleAdvanceSearch = !toggleAdvanceSearch"
+          >
+            Toggle Advance Search
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="text-center">
+    <div class="spinner-border" role="status" *ngIf="loading$ | async">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body p-0">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        (matSortChange)="customSort($event)"
+      >
+        <ng-container matColumnDef="propertyNumber">
+          <th mat-header-cell *matHeaderCellDef>Property Number</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.propertyNumber }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="referenceNumber">
+          <th mat-header-cell *matHeaderCellDef>Reference Number</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.referenceNumber }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="natureOfInstrument">
+          <th mat-header-cell *matHeaderCellDef>Nature Of Instrument</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.natureOfInstrument }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dateOfInstrument">
+          <th mat-header-cell *matHeaderCellDef>Date Of Instrument</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.dateOfInstrument | date }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="consideration">
+          <th mat-header-cell *matHeaderCellDef>Consideration</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.consideration }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fileNumber">
+          <th mat-header-cell *matHeaderCellDef>File Number</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.fileNumber }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="termYears">
+          <th mat-header-cell *matHeaderCellDef>Term Years</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.termYears }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="grantor">
+          <th mat-header-cell *matHeaderCellDef>Grantor</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.grantor }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="grantee">
+          <th mat-header-cell *matHeaderCellDef>Grantee</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.grantee }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acreage">
+          <th mat-header-cell *matHeaderCellDef>Acreage</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.acreage }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="purpose">
+          <th mat-header-cell *matHeaderCellDef>Purpose</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.purpose }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef>Location</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.location }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="shelfNumber">
+          <th mat-header-cell *matHeaderCellDef>Shelf Number</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.shelfNumber }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="documentationDate">
+          <th mat-header-cell *matHeaderCellDef>Documentation Date</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.documentationDate | date }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              class="btn btn-secondary mr-4"
+              (click)="gotoDetail(element)"
+            >
+              Detail
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <p *ngIf="dataSource.data.length === 0" class="text-center my-5">
+        No items found
+      </p>
+      <mat-paginator
+        [length]="pagination.totalItems"
+        [pageSize]="pagination.pageSize"
+        [pageSizeOptions]="[3, 5, 15, 25, 50, 100]"
+        (page)="pageEvent($event)"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>

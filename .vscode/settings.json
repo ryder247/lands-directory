@@ -1,0 +1,14 @@
+{
+  "sqltools.connections": [
+    {
+      "database": "landDirectoryDb",
+      "driver": "PostgreSQL",
+      "name": "localhost",
+      "password": "postgres",
+      "port": 5432,
+      "previewLimit": 50,
+      "server": "localhost",
+      "username": "postgres"
+    }
+  ]
+}
