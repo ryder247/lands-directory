@@ -51,9 +51,22 @@ export class LandFileService {
     }
   }
 
+  public async getByFileNumber(fileNumber: string) {
+    try {
+      return await this.landFileRepository.findOne({ where: { fileNumber } });
+    } catch (error) {
+      new ResultException(error, HttpStatus.BAD_REQUEST);
+    }
+  }
+
   public async save(landFileDto: SaveLandFileDto) {
     try {
-      return await this.landFileRepository.save(landFileDto);
+      const dbLandFile = await this.getByFileNumber(landFileDto.fileNumber);
+      if (dbLandFile) {
+        new ResultException('Cannot save duplicate', HttpStatus.BAD_REQUEST);
+      } else {
+        await this.landFileRepository.save(landFileDto);
+      }
     } catch (error) {
       new ResultException(error, HttpStatus.BAD_REQUEST);
     }
