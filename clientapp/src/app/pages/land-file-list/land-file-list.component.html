@@ -61,7 +61,16 @@
             class="btn btn-light text-right"
             (click)="toggleAdvanceSearch = !toggleAdvanceSearch"
           >
-            Toggle Advance Search
+            Advance
+          </button>
+        </div>
+        <div class="col d-flex justify-content-end">
+          <button
+            type="button"
+            class="btn btn-primary text-right"
+            [routerLink]="['/add']"
+          >
+            Add New
           </button>
         </div>
       </div>

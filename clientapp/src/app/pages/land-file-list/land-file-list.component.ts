@@ -87,7 +87,7 @@ export class LandFileListComponent implements OnInit, AfterViewInit {
   }
 
   gotoDetail(element): void {
-    console.log(element);
+    this.router.navigate(['view', element.id]);
   }
 
   getLandFiles(model?: any, pageNumber?: number, pageSize?: number): void {

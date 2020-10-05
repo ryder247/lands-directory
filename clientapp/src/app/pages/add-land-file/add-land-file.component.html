@@ -1,1 +1,187 @@
-<p>add-land-file works!</p>
+<div class="container-fluid">
+  <div class="row my-3">
+    <div class="col">
+      <h1 class="font-weight-normal m-0 p-0 text-center">ADD NEW</h1>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-8 col-sm-12">
+      <div class="card shadow">
+        <div class="card-body p-5">
+          <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="propertyNumber">Property number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="propertyNumber"
+                    id="propertyNumber"
+                    [(ngModel)]="model.propertyNumber"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="referenceNumber">Reference number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="referenceNumber"
+                    id="referenceNumber"
+                    [(ngModel)]="model.referenceNumber"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="natureOfInstrument">Nature Of Instrument</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="natureOfInstrument"
+                    id="natureOfInstrument"
+                    [(ngModel)]="model.natureOfInstrument"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="dateOfInstrument">Date Of Instrument</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="dateOfInstrument"
+                    id="dateOfInstrument"
+                    [(ngModel)]="model.dateOfInstrument"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="grantor">Grantor</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="grantor"
+                    id="grantor"
+                    [(ngModel)]="model.grantor"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="grantee">Grantor</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="grantee"
+                    id="grantee"
+                    [(ngModel)]="model.grantee"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="acreage">Acreage</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="acreage"
+                    id="acreage"
+                    [(ngModel)]="model.acreage"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="fileNumber">FileNumber</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="fileNumber"
+                    id="fileNumber"
+                    [(ngModel)]="model.fileNumber"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="termYears">Term Years</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="termYears"
+                    id="termYears"
+                    [(ngModel)]="model.termYears"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="purpose">Purpose</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="purpose"
+                    id="purpose"
+                    [(ngModel)]="model.purpose"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="location">Location</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="location"
+                    id="location"
+                    [(ngModel)]="model.location"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="shelfNumber">Shelf Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="shelfNumber"
+                    id="shelfNumber"
+                    [(ngModel)]="model.shelfNumber"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="documentationDate">DocumentationDate</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="documentationDate"
+                    id="documentationDate"
+                    [(ngModel)]="model.documentationDate"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="consideration">Consideration</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="consideration"
+                    id="consideration"
+                    [(ngModel)]="model.consideration"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="spinner-border" role="status" *ngIf="loading | async">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button type="submit" class="btn btn-primary mr-3">Save</button>
+                <button
+                  type="button"
+                  class="btn btn-danger mr-3"
+                  (click)="goBack()"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

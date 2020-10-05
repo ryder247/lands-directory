@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LandFileComponent } from './land-file.component';
+import { ViewLandFileComponent } from './view-land-file.component';
 
-describe('LandFileComponent', () => {
-  let component: LandFileComponent;
-  let fixture: ComponentFixture<LandFileComponent>;
+describe('ViewLandFileComponent', () => {
+  let component: ViewLandFileComponent;
+  let fixture: ComponentFixture<ViewLandFileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LandFileComponent ]
+      declarations: [ ViewLandFileComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LandFileComponent);
+    fixture = TestBed.createComponent(ViewLandFileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

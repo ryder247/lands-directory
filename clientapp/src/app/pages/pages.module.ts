@@ -7,7 +7,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from '../app.component';
 import { LandFileListComponent } from './land-file-list/land-file-list.component';
-import { LandFileComponent } from './land-file/land-file.component';
 import { AddLandFileComponent } from './add-land-file/add-land-file.component';
 import { AddMinuteFileComponent } from './add-minute-file/add-minute-file.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,14 +17,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule } from '@angular/forms';
+import { ViewLandFileComponent } from './view-land-file/view-land-file.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
     LandFileListComponent,
-    LandFileComponent,
     AddLandFileComponent,
     AddMinuteFileComponent,
+    ViewLandFileComponent,
   ],
   imports: [
     CommonModule,
