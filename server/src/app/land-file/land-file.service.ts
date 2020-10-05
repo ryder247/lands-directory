@@ -112,7 +112,7 @@ export class LandFileService {
   performAdvanceSearch(filteredItems: any[], queryModel: any) {
     if (queryModel.termYears && queryModel.termYears !== 'undefined') {
       filteredItems = filteredItems.filter(
-        it => it.termYears === queryModel.termYears,
+        it => it.termYears.toLowerCase() === queryModel.termYears.toLowerCase(),
       );
     }
 
@@ -121,13 +121,15 @@ export class LandFileService {
       queryModel.natureOfInstrument !== 'undefined'
     ) {
       filteredItems = filteredItems.filter(
-        it => it.natureOfInstrument === queryModel.natureOfInstrument,
+        it =>
+          it.natureOfInstrument.toLowerCase() ===
+          queryModel.natureOfInstrument.toLowerCase(),
       );
     }
 
     if (queryModel.purpose && queryModel.purpose !== 'undefined') {
       filteredItems = filteredItems.filter(
-        it => it.purpose === queryModel.purpose,
+        it => it.purpose.toLowerCase() === queryModel.purpose.toLowerCase(),
       );
     }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LandsFileService } from '../../services/lands-file/lands-file.service';
+import { LandFileModel } from '../../models/land-file.model';
 
 @Component({
   selector: 'app-view-land-file',
@@ -9,7 +10,7 @@ import { LandsFileService } from '../../services/lands-file/lands-file.service';
 })
 export class ViewLandFileComponent implements OnInit {
   landFileId: string;
-  landFile = {} as any;
+  landFile = {} as LandFileModel;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,7 +21,7 @@ export class ViewLandFileComponent implements OnInit {
     this.landFileId = this.route.snapshot.params.id;
     this.landFileService.getById(this.landFileId).subscribe(
       (res) => {
-        console.log(res);
+        this.landFile = res.data;
       },
       (err) => {
         console.log(err);

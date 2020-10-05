@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule } from '@angular/forms';
 import { ViewLandFileComponent } from './view-land-file/view-land-file.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ViewLandFileComponent } from './view-land-file/view-land-file.component
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatInputModule,
+    MatTabsModule,
   ],
 })
 export class PagesModule {}

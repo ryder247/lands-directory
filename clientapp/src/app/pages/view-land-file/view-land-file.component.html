@@ -1,1 +1,114 @@
-<p>view-land-file works!</p>
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-6 col-sm-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <div class="display-item">
+                <p class="p-0 m-0 title">Property Name</p>
+                <p class="font-weight-bold">
+                  {{ landFile.propertyNumber || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Reference number</p>
+                <p class="font-weight-bold">
+                  {{ landFile.referenceNumber || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Nature Of Instrument</p>
+                <p class="font-weight-bold">
+                  {{ landFile.natureOfInstrument || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Date Of Instrument</p>
+                <p class="font-weight-bold">
+                  {{ landFile.dateOfInstrument || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Grantor</p>
+                <p class="font-weight-bold">
+                  {{ landFile.grantor || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Grantee</p>
+                <p class="font-weight-bold">
+                  {{ landFile.grantee || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Acreage</p>
+                <p class="font-weight-bold">
+                  {{ landFile.acreage || '---' }}
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="display-item">
+                <p class="p-0 m-0 title">FileNumber</p>
+                <p class="font-weight-bold">
+                  {{ landFile.fileNumber || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Term Years</p>
+                <p class="font-weight-bold">
+                  {{ landFile.termYears || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Purpose</p>
+                <p class="font-weight-bold">
+                  {{ landFile.purpose || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Location</p>
+                <p class="font-weight-bold">
+                  {{ landFile.location || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Shelf Number</p>
+                <p class="font-weight-bold">
+                  {{ landFile.shelfNumber || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Documentation Date</p>
+                <p class="font-weight-bold">
+                  {{ landFile.documentationDate || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Consideration</p>
+                <p class="font-weight-bold">
+                  {{ landFile.consideration || '---' }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body p-0">
+              <mat-tab-group mat-align-tabs="end">
+                <mat-tab label="Minutes">Content</mat-tab>
+                <mat-tab label="Office Histories">Content</mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

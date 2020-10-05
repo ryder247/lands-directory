@@ -20,16 +20,20 @@ export class AddLandFileComponent implements OnInit {
 
   onSubmit(): void {
     this.loading.next(true);
-    this.landsFileService.save(this.model).subscribe(
-      (_) => {
-        this.goBack();
-        this.loading.next(false);
-      },
-      (err) => {
-        alert(err.error.message.message);
-        this.loading.next(false);
-      },
-    );
+    if (Object.values(this.model).filter((c) => c !== '').length > 0) {
+      this.landsFileService.save(this.model).subscribe(
+        (_) => {
+          this.goBack();
+          this.loading.next(false);
+        },
+        (err) => {
+          alert(err.error.message.message);
+          this.loading.next(false);
+        },
+      );
+    } else {
+      this.loading.next(false);
+    }
   }
 
   goBack(): void {
