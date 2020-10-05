@@ -90,6 +90,23 @@ export class LandFileListComponent implements OnInit, AfterViewInit {
     this.router.navigate(['view', element.id]);
   }
 
+  remove(element): void {
+    const pass = prompt('Enter password to delete?');
+    if (pass === '54321') {
+      this.loading$.next(true);
+      this.landsFileService.delete(element.id).subscribe(
+        () => {
+          window.location.reload();
+        },
+        () => {
+          this.loading$.next(false);
+        },
+      );
+    } else {
+      alert('Please contact admin to help you delete thanks.');
+    }
+  }
+
   getLandFiles(model?: any, pageNumber?: number, pageSize?: number): void {
     this.loading$.next(true);
     this.landsFileService.getAll(model, pageNumber, pageSize).subscribe(

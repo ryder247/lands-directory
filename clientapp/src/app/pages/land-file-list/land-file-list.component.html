@@ -194,10 +194,13 @@
             <th mat-header-cell *matHeaderCellDef>Action</th>
             <td mat-cell *matCellDef="let element">
               <button
-                class="btn btn-secondary mr-4"
+                class="btn btn-primary mr-4"
                 (click)="gotoDetail(element)"
               >
-                Detail
+                👀
+              </button>
+              <button class="btn btn-danger mr-4" (click)="remove(element)">
+                🚫
               </button>
             </td>
           </ng-container>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { LandsFileService } from '../../services/lands-file/lands-file.service';
 import { LandFileModel } from '../../models/land-file.model';
 
@@ -15,6 +16,7 @@ export class ViewLandFileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private landFileService: LandsFileService,
+    private location: Location,
   ) {}
 
   ngOnInit(): void {
@@ -28,5 +30,9 @@ export class ViewLandFileComponent implements OnInit {
       },
     );
     console.log(this.landFileId);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
