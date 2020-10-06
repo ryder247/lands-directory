@@ -14,7 +14,7 @@ export class LandFileModel {
   shelfNumber: string;
   documentationDate: string;
   minuteFiles: MinuteModel[];
-  officeHistories: OfficeHistory[];
+  officeHistories: OfficeHistoryModel[];
 }
 
 export class MinuteModel {
@@ -23,7 +23,7 @@ export class MinuteModel {
   uploadFileUrl: string;
 }
 
-export class OfficeHistory {
+export class OfficeHistoryModel {
   giver: string;
   location: string;
   collector: string;

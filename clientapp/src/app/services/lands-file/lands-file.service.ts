@@ -28,12 +28,12 @@ export class LandsFileService {
     return this.http.get(this.landFilesApi + '/' + id);
   }
 
-  save(landFile: LandFileModel): Observable<any> {
-    return this.http.post(this.landFilesApi, landFile);
+  save(model: LandFileModel): Observable<any> {
+    return this.http.post(this.landFilesApi, model);
   }
 
-  update(id: string, landFile: LandFileModel): Observable<any> {
-    return this.http.put(this.landFilesApi + '/' + id, landFile);
+  update(id: string, model: LandFileModel): Observable<any> {
+    return this.http.put(this.landFilesApi + '/' + id, model);
   }
 
   delete(id: string): Observable<any> {
