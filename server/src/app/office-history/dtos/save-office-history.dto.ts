@@ -2,7 +2,9 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class SaveOfficeHistoryDto {
   @ApiProperty()
-  uploadFileUrl: string;
+  giver: string;
+  @ApiProperty()
+  collector: string;
   @ApiProperty()
   officeNumber: string;
   @ApiProperty()

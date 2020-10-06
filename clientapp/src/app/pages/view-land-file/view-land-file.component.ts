@@ -24,6 +24,7 @@ export class ViewLandFileComponent implements OnInit {
     this.landFileService.getById(this.landFileId).subscribe(
       (res) => {
         this.landFile = res.data;
+        console.log(this.landFile);
       },
       (err) => {
         console.log(err);
