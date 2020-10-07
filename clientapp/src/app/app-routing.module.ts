@@ -7,9 +7,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/pages.module').then((mod) => mod.PagesModule),
   },
+  // {
+  //   path: 'auth',
+  //   loadChildren: './auth/auth.module#AuthModule'
+  // },
   {
     path: '**',
-    redirectTo: '/',
+    redirectTo: '404',
     pathMatch: 'full',
   },
 ];
