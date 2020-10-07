@@ -33,21 +33,17 @@ export class AddMinuteFileComponent implements OnInit {
       reader.onload = () => {
         this.fileSrc = reader.result as string;
 
-        console.log(reader.result);
+        this.minutesService.uploadMinute(this.fileSrc).subscribe(
+          (res) => {
+            console.log('success');
+            console.log(res);
+          },
+          (err) => {
+            console.log(err);
+          },
+        );
       };
     }
-  }
-
-  uploadProfileImage(fb: FormData): void {
-    this.minutesService.uploadMinute(fb).subscribe(
-      (res) => {
-        console.log('success');
-        console.log(res);
-      },
-      (err) => {
-        console.log(err);
-      },
-    );
   }
 
   onSubmit(): void {
