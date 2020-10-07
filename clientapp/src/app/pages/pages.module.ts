@@ -19,6 +19,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule } from '@angular/forms';
 import { ViewLandFileComponent } from './view-land-file/view-land-file.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AddOfficeHistoryComponent } from './add-office-history/add-office-history.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     AddLandFileComponent,
     AddMinuteFileComponent,
     ViewLandFileComponent,
+    AddOfficeHistoryComponent,
   ],
   imports: [
     CommonModule,
