@@ -9,6 +9,8 @@ import { MinuteModel } from '../../models/land-file.model';
 })
 export class MinutesService {
   private minutesApi = environment.baseUrl + '/minute_files';
+  private uploadApiEndPoint = environment.baseUrl + '/upload';
+
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<any> {
@@ -29,5 +31,9 @@ export class MinutesService {
 
   delete(id: string): Observable<any> {
     return this.http.delete(this.minutesApi + '/' + id);
+  }
+
+  uploadMinute(avatar: any): Observable<any> {
+    return this.http.post(this.uploadApiEndPoint, avatar);
   }
 }

@@ -11,6 +11,7 @@ import { MinutesService } from '../../services/minutes/minutes.service';
 })
 export class AddMinuteFileComponent implements OnInit {
   model = {} as MinuteModel;
+  fileSrc: string;
 
   constructor(
     private location: Location,
@@ -20,6 +21,33 @@ export class AddMinuteFileComponent implements OnInit {
 
   ngOnInit(): void {
     this.model.landFileId = this.route.snapshot.params.landFileId;
+  }
+
+  onChange(event: any): void {
+    const reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.fileSrc = reader.result as string;
+
+        console.log(reader.result);
+      };
+    }
+  }
+
+  uploadProfileImage(fb: FormData): void {
+    this.minutesService.uploadMinute(fb).subscribe(
+      (res) => {
+        console.log('success');
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      },
+    );
   }
 
   onSubmit(): void {

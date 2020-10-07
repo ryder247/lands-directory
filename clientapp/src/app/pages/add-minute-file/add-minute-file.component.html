@@ -26,13 +26,14 @@
 
             <div class="form-group mt-4">
               <input
-                type="file"
                 class="form-control-file"
-                name="uploadFiles"
-                id="uploadFiles"
-                placeholder="Upload Files"
+                type="file"
+                name="minuteFile"
+                (change)="onChange($event)"
+                accept="'.jpg,.png,.jpeg,.pdf'"
               />
             </div>
+
             <div class="row">
               <div class="col">
                 <button type="submit" class="btn btn-primary mr-3">Save</button>
