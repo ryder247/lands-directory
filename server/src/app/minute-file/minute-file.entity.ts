@@ -1,4 +1,5 @@
-import { Entity, Column, ManyToOne } from 'typeorm';
+import { join } from 'path';
+import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseEntity } from '../../shared/base.entity';
 import { LandFileEntity } from '../land-file/land-file.entity';
 
@@ -18,5 +19,9 @@ export class MinuteFileEntity extends BaseEntity {
     landFile => landFile.minuteFiles,
     { cascade: false },
   )
+  @JoinColumn({ name: 'landFileId' })
   landFile: LandFileEntity;
+
+  @Column({ nullable: true })
+  landFileId: string;
 }

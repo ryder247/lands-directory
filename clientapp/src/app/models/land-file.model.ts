@@ -21,6 +21,7 @@ export class MinuteModel {
   type: string;
   minuteNumber: string;
   uploadFileUrl: string;
+  landFileId: string;
 }
 
 export class OfficeHistoryModel {
