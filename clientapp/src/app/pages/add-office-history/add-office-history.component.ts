@@ -25,12 +25,14 @@ export class AddOfficeHistoryComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.loading.next(true);
-    if (Object.values(this.model).filter((c) => c !== '').length > 0) {
+    const data = { ...this.model };
+    delete data.landFileId;
+    if (Object.values(data).filter((c) => c !== '').length > 0) {
+      this.loading.next(true);
       this.officeHistoryService.save(this.model).subscribe(
         (_) => {
+          alert('Office History Added!');
           this.goBack();
-          this.loading.next(false);
         },
         (err) => {
           alert(err.error.message.message);

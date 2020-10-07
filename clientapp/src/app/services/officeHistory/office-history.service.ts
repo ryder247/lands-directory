@@ -8,26 +8,26 @@ import { OfficeHistoryModel } from '../../models/land-file.model';
   providedIn: 'root',
 })
 export class OfficeHistoryService {
-  private minutesApi = environment.baseUrl + '/minute_files';
+  private officeHistoryApi = environment.baseUrl + '/office_histories';
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<any> {
-    return this.http.get(this.minutesApi);
+    return this.http.get(this.officeHistoryApi);
   }
 
   getById(id: string): Observable<any> {
-    return this.http.get(this.minutesApi + '/' + id);
+    return this.http.get(this.officeHistoryApi + '/' + id);
   }
 
   save(model: OfficeHistoryModel): Observable<any> {
-    return this.http.post(this.minutesApi, model);
+    return this.http.post(this.officeHistoryApi, model);
   }
 
   update(id: string, model: OfficeHistoryModel): Observable<any> {
-    return this.http.put(this.minutesApi + '/' + id, model);
+    return this.http.put(this.officeHistoryApi + '/' + id, model);
   }
 
   delete(id: string): Observable<any> {
-    return this.http.delete(this.minutesApi + '/' + id);
+    return this.http.delete(this.officeHistoryApi + '/' + id);
   }
 }

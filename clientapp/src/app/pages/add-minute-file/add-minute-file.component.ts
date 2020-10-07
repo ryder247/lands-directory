@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { MinuteModel } from '../../models/land-file.model';
 import { ActivatedRoute } from '@angular/router';
 import { MinutesService } from '../../services/minutes/minutes.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-add-minute-file',
@@ -47,8 +48,22 @@ export class AddMinuteFileComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.model);
-    this.minutesService.save(this.model).subscribe(console.log);
+    const data = { ...this.model };
+    delete data.landFileId;
+
+    if (Object.values(this.model).filter((c) => c !== '').length > 0) {
+      this.loading.next(true);
+      this.minutesService.save(this.model).subscribe(
+        () => {
+          alert('Minute Added!');
+          this.goBack();
+        },
+        (err) => {
+          alert(err.error.message.message);
+          this.loading.next(false);
+        },
+      );
+    }
   }
 
   goBack(): void {

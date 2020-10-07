@@ -76,10 +76,11 @@ export class UploadController {
   }
 
   private async uploadExcelEntries(file: any) {
+    let landFiles = [];
     if (file.filename.split('.')[1].includes('xls')) {
       const filePath = `./files/${file.filename}`;
       const rows = await excelFile(filePath);
-      const landFiles = rows.slice(1).map((column: any[]) => {
+      landFiles = rows.slice(1).map((column: any[]) => {
         return {
           referenceNumber: column[0],
           propertyNumber: column[1],
