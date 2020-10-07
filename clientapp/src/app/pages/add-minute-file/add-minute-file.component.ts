@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { MinuteModel } from '../../models/land-file.model';
+import { ActivatedRoute } from '@angular/router';
+import { MinutesService } from '../../services/minutes/minutes.service';
 
 @Component({
   selector: 'app-add-minute-file',
@@ -10,11 +12,20 @@ import { MinuteModel } from '../../models/land-file.model';
 export class AddMinuteFileComponent implements OnInit {
   model = {} as MinuteModel;
 
-  constructor(private location: Location) {}
+  constructor(
+    private location: Location,
+    private route: ActivatedRoute,
+    private minutesService: MinutesService,
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.model.landFileId = this.route.snapshot.params.landFileId;
+  }
 
-  onSubmit(): void {}
+  onSubmit(): void {
+    console.log(this.model);
+    this.minutesService.save(this.model).subscribe(console.log);
+  }
 
   goBack(): void {
     this.location.back();
