@@ -30,4 +30,5 @@ export class OfficeHistoryModel {
   delivered: string;
   officeNumber: string;
   deliveredDateTime: string;
+  landFileId: string;
 }
