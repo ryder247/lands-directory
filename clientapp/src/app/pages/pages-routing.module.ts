@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AddLandFileComponent } from './add-land-file/add-land-file.component';
 import { ViewLandFileComponent } from './view-land-file/view-land-file.component';
 import { AddMinuteFileComponent } from './add-minute-file/add-minute-file.component';
+import { AddOfficeHistoryComponent } from './add-office-history/add-office-history.component';
 
 const routes: Routes = [
   {
@@ -30,13 +31,13 @@ const routes: Routes = [
         component: ViewLandFileComponent,
       },
       {
-        path: 'minute/add',
+        path: 'minuteAdd/:landFileId',
         component: AddMinuteFileComponent,
       },
 
       {
-        path: 'office/add',
-        component: AddMinuteFileComponent,
+        path: 'officeAdd/:landFileId',
+        component: AddOfficeHistoryComponent,
       },
     ],
   },
