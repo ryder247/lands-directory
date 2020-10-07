@@ -5,15 +5,11 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./pages/pages.module').then(mod => mod.PagesModule),
+      import('./pages/pages.module').then((mod) => mod.PagesModule),
   },
-  // {
-  //   path: 'auth',
-  //   loadChildren: './auth/auth.module#AuthModule'
-  // },
   {
     path: '**',
-    redirectTo: '404',
+    redirectTo: '/',
     pathMatch: 'full',
   },
 ];

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AddLandFileComponent } from './add-land-file/add-land-file.component';
 import { ViewLandFileComponent } from './view-land-file/view-land-file.component';
+import { AddMinuteFileComponent } from './add-minute-file/add-minute-file.component';
 
 const routes: Routes = [
   {
@@ -24,10 +25,18 @@ const routes: Routes = [
         path: 'edit/:id',
         component: AddLandFileComponent,
       },
-
       {
         path: 'view/:id',
         component: ViewLandFileComponent,
+      },
+      {
+        path: 'minute/add',
+        component: AddMinuteFileComponent,
+      },
+
+      {
+        path: 'office/add',
+        component: AddMinuteFileComponent,
       },
     ],
   },
