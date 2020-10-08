@@ -135,7 +135,15 @@
                         <td scope="row">{{ m.minuteNumber }}</td>
                         <td>{{ m.type }}</td>
                         <td>{{ m.uploadFileUrl }}</td>
-                        <td>edit</td>
+                        <td>
+                          <button
+                            type="button"
+                            class="btn btn-outline-danger mb-4"
+                            (click)="goBack()"
+                          >
+                            Delete
+                          </button>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -166,8 +174,16 @@
                         <td>{{ o.giver }}</td>
                         <td>{{ o.collector }}</td>
                         <td>{{ o.delivered }}</td>
-                        <td>{{ o.deliveredDateTime }}</td>
-                        <td>edit</td>
+                        <td>{{ o.createdAt | date }}</td>
+                        <td>
+                          <button
+                            type="button"
+                            class="btn btn-outline-danger mb-4"
+                            (click)="goBack()"
+                          >
+                            Delete
+                          </button>
+                        </td>
                       </tr>
                     </tbody>
                   </table>

@@ -10,8 +10,14 @@ export class OfficeHistoryEntity extends BaseEntity {
   @Column({ type: 'varchar', length: 500, nullable: true })
   location: string;
 
-  @Column({ type: 'varchar', length: 500 })
+  @Column({ type: 'varchar', length: 500, nullable: true, default: 'No' })
   delivered: string;
+
+  @Column({ type: 'varchar', length: 500, nullable: true })
+  giver: string;
+
+  @Column({ type: 'varchar', length: 500, nullable: true })
+  collector: string;
 
   @Column({ type: 'varchar', length: 500, nullable: true })
   deliveredDateTime: string;

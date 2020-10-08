@@ -29,6 +29,7 @@ export class AddOfficeHistoryComponent implements OnInit {
     delete data.landFileId;
     if (Object.values(data).filter((c) => c !== '').length > 0) {
       this.loading.next(true);
+      debugger;
       this.officeHistoryService.save(this.model).subscribe(
         (_) => {
           alert('Office History Added!');
@@ -45,6 +46,6 @@ export class AddOfficeHistoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.model.landFileId = this.route.snapshot.params.id;
+    this.model.landFileId = this.route.snapshot.params.landFileId;
   }
 }

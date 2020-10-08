@@ -28,8 +28,8 @@ export class OfficeHistoryModel {
   giver: string;
   location: string;
   collector: string;
-  delivered: string;
   officeNumber: string;
-  deliveredDateTime: string;
   landFileId: string;
+  delivered: string;
+  createdAt: string;
 }

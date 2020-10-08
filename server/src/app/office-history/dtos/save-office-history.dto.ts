@@ -9,8 +9,4 @@ export class SaveOfficeHistoryDto {
   officeNumber: string;
   @ApiProperty()
   location: string;
-  @ApiProperty()
-  delivered: string;
-  @ApiProperty()
-  deliveredDateTime: string;
 }
