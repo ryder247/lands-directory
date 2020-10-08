@@ -131,23 +131,25 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let m of landFile.minuteFiles">
-                        <td scope="row">{{ m.minuteNumber }}</td>
-                        <td>{{ m.type }}</td>
+                      <tr *ngFor="let minute of landFile.minuteFiles">
+                        <td scope="row">{{ minute.minuteNumber }}</td>
+                        <td>{{ minute.type }}</td>
                         <td>
                           <a
                             target="_blank"
-                            (click)="safeUrl(m.uploadFileUrl)"
-                            *ngIf="m.uploadFileUrl"
+                            (click)="safeUrl(minute.uploadFileUrl)"
+                            *ngIf="minute.uploadFileUrl"
                             class="btn-link"
                             >View File</a
                           >
+
+                          <p *ngIf="!minute.uploadFileUrl">No File</p>
                         </td>
                         <td>
                           <button
                             type="button"
                             class="btn btn-outline-danger mb-4"
-                            (click)="goBack()"
+                            (click)="deleteMinute(minute)"
                           >
                             Delete
                           </button>
@@ -176,18 +178,18 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let o of landFile.officeHistories">
-                        <td scope="row">{{ o.officeNumber }}</td>
-                        <td>{{ o.location }}</td>
-                        <td>{{ o.giver }}</td>
-                        <td>{{ o.collector }}</td>
-                        <td>{{ o.delivered }}</td>
-                        <td>{{ o.createdAt | date }}</td>
+                      <tr *ngFor="let history of landFile.officeHistories">
+                        <td scope="row">{{ history.officeNumber }}</td>
+                        <td>{{ history.location }}</td>
+                        <td>{{ history.giver }}</td>
+                        <td>{{ history.collector }}</td>
+                        <td>{{ history.delivered }}</td>
+                        <td>{{ history.createdAt | date }}</td>
                         <td>
                           <button
                             type="button"
                             class="btn btn-outline-danger mb-4"
-                            (click)="goBack()"
+                            (click)="deleteLandFile(history)"
                           >
                             Delete
                           </button>
