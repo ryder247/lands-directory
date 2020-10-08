@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { LandsFileService } from '../../services/lands-file/lands-file.service';
 import { LandFileModel } from '../../models/land-file.model';
+import { environment } from '../../../environments/environment';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view-land-file',
@@ -12,12 +14,19 @@ import { LandFileModel } from '../../models/land-file.model';
 export class ViewLandFileComponent implements OnInit {
   landFileId: string;
   landFile = {} as LandFileModel;
+  baseUrl = environment.baseUrl;
 
   constructor(
     private route: ActivatedRoute,
     private landFileService: LandsFileService,
     private location: Location,
+    private domSanitizer: DomSanitizer,
   ) {}
+
+  safeUrl(url: string): any {
+    console.log(url);
+    const safeUrl = this.domSanitizer.bypassSecurityTrustUrl(url);
+  }
 
   ngOnInit(): void {
     this.landFileId = this.route.snapshot.params.id;

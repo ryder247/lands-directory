@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,18 @@ export class LandsFileService {
   }
 
   getById(id: string): Observable<any> {
-    return this.http.get(this.landFilesApi + '/' + id);
+    return this.http.get(this.landFilesApi + '/' + id).pipe(
+      map((landfile: any) => {
+        landfile.data.minuteFiles.map((minute) => {
+          const uploadData = JSON.parse(minute.uploadFileUrl);
+          minute.uploadFileUrl = uploadData
+            ? 'localhost:3000/' + uploadData.filepath
+            : '';
+          return minute;
+        });
+        return landfile;
+      }),
+    );
   }
 
   save(model: LandFileModel): Observable<any> {

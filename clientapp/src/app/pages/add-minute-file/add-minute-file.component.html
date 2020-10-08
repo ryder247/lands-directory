@@ -24,15 +24,27 @@
               />
             </div>
 
-            <div class="form-group mt-4">
-              <input
-                type="file"
-                class="form-control-file"
-                name="uploadFiles"
-                id="uploadFiles"
-                placeholder="Upload Files"
-              />
-            </div>
+            <button
+              type="button"
+              class="btn btn-primary mt-4"
+              (click)="onUploadFile()"
+            >
+              Upload File
+            </button>
+
+            <p class="my-3">
+              {{ model.uploadFileUrl?.originalname }}
+            </p>
+
+            <input
+              type="file"
+              #fileUpload
+              id="fileUpload"
+              name="fileUpload"
+              accept="image/*"
+              style="display: none"
+            />
+
             <div class="row">
               <div class="col">
                 <button type="submit" class="btn btn-primary mr-3">Save</button>

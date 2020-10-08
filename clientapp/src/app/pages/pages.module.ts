@@ -46,6 +46,7 @@ import { AddOfficeHistoryComponent } from './add-office-history/add-office-histo
     MatProgressSpinnerModule,
     MatInputModule,
     MatTabsModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class PagesModule {}

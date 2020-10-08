@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -20,6 +21,7 @@ export class MinutesService {
   }
 
   save(model: MinuteModel): Observable<any> {
+    model.uploadFileUrl = JSON.stringify(model.uploadFileUrl);
     return this.http.post(this.minutesApi, model);
   }
 
@@ -29,5 +31,12 @@ export class MinutesService {
 
   delete(id: string): Observable<any> {
     return this.http.delete(this.minutesApi + '/' + id);
+  }
+
+  upload(formData: FormData): Observable<any> {
+    return this.http.post<FormData>(environment.baseUrl + '/upload', formData, {
+      reportProgress: true,
+      observe: 'events',
+    });
   }
 }

@@ -20,7 +20,7 @@ export class LandFileModel {
 export class MinuteModel {
   type: string;
   minuteNumber: string;
-  uploadFileUrl: string;
+  uploadFileUrl: any;
   landFileId: string;
 }
 

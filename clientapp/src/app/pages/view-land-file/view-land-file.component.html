@@ -134,7 +134,15 @@
                       <tr *ngFor="let m of landFile.minuteFiles">
                         <td scope="row">{{ m.minuteNumber }}</td>
                         <td>{{ m.type }}</td>
-                        <td>{{ m.uploadFileUrl }}</td>
+                        <td>
+                          <a
+                            target="_blank"
+                            (click)="safeUrl(m.uploadFileUrl)"
+                            *ngIf="m.uploadFileUrl"
+                            class="btn-link"
+                            >View File</a
+                          >
+                        </td>
                         <td>
                           <button
                             type="button"
