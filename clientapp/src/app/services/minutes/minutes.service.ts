@@ -10,6 +10,8 @@ import { MinuteModel } from '../../models/land-file.model';
 })
 export class MinutesService {
   private minutesApi = environment.baseUrl + '/minute_files';
+  private uploadApiEndPoint = environment.baseUrl + '/upload';
+
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<any> {
