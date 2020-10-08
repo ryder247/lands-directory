@@ -1,5 +1,38 @@
-<mat-toolbar color="primary">
-  <span>Land Directory Application</span>
-  <span class="example-spacer"></span>
-</mat-toolbar>
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Land Directory Application</a>
+  <button
+    class="navbar-toggler d-lg-none"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapsibleNavId"
+    aria-controls="collapsibleNavId"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+    <div class="form-inline my-2 my-lg-0">
+      <button type="button" class="btn btn-light" (click)="onUploadFile()">
+        Upload File
+      </button>
+
+      <p class="my-3">
+        {{ model.uploadFileUrl?.originalname }}
+      </p>
+
+      <input
+        type="file"
+        #fileUpload
+        id="fileUpload"
+        name="fileUpload"
+        accept=".xls,xlsx"
+        style="display: none"
+      />
+    </div>
+  </div>
+</nav>
+<!-- Nav tabs -->
+
 <router-outlet></router-outlet>
