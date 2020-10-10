@@ -98,9 +98,9 @@
                 </p>
               </div>
               <div class="display-item">
-                <p class="p-0 m-0 title">Documentation Date</p>
+                <p class="p-0 m-0 title">Entry Date</p>
                 <p class="font-weight-bold">
-                  {{ landFile.documentationDate || '---' }}
+                  {{ (landFile.createdAt | date) || '---' }}
                 </p>
               </div>
               <div class="display-item">
@@ -187,11 +187,18 @@
                         <td>{{ history.createdAt | date }}</td>
                         <td>
                           <button
+                          type="button" *ngIf="history.delivered.toLocaleLowerCase() === 'no'"
+                          class="btn btn-outline-primary mb-4 mr-2"
+                          (click)="deliverLandFile(history)"
+                        >
+                        ✔
+                        </button>
+                          <button
                             type="button"
                             class="btn btn-outline-danger mb-4"
                             (click)="deleteLandFile(history)"
                           >
-                            Delete
+                          🚫
                           </button>
                         </td>
                       </tr>

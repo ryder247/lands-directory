@@ -33,7 +33,7 @@
                   />
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="natureOfInstrument">Nature Of Instrument</label>
                   <input
                     type="text"
@@ -42,7 +42,16 @@
                     id="natureOfInstrument"
                     [(ngModel)]="model.natureOfInstrument"
                   />
+                </div> -->
+
+                <div class="form-group">
+                  <label for="natureOfInstrument" >Nature Of Instrument</label>
+                  <select class="form-control"  name="natureOfInstrument" name="natureOfInstrument" [(ngModel)]="model.natureOfInstrument">
+                    <option *ngFor="let noi of natureOfInstruments">{{noi}}</option>
+                  </select>
                 </div>
+
+                
 
                 <div class="form-group">
                   <label for="dateOfInstrument">Date Of Instrument</label>
@@ -140,16 +149,7 @@
                     [(ngModel)]="model.shelfNumber"
                   />
                 </div>
-                <div class="form-group">
-                  <label for="documentationDate">Documentation Date</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="documentationDate"
-                    id="documentationDate"
-                    [(ngModel)]="model.documentationDate"
-                  />
-                </div>
+                
                 <div class="form-group">
                   <label for="consideration">Consideration</label>
                   <input

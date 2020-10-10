@@ -45,6 +45,8 @@ export class LandsFileService {
   }
 
   update(id: string, model: LandFileModel): Observable<any> {
+    delete model.minuteFiles;
+    delete model.officeHistories;
     return this.http.put(this.landFilesApi + '/' + id, model);
   }
 

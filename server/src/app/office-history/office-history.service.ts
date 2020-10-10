@@ -42,9 +42,19 @@ export class OfficeHistoryService {
       new ResultException(error, HttpStatus.BAD_REQUEST);
     }
   }
-
+//deliver
   public async update(id: string, officeHistoryDto: UpdateOfficeHistoryDto) {
     try {
+      return await this.officeHistoryRepository.update(id, officeHistoryDto);
+    } catch (error) {
+      new ResultException(error, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  public async deliver(id: string) {
+    try {
+      var officeHistoryDto = await this.officeHistoryRepository.findOne(id);
+      officeHistoryDto.delivered = "Yes";
       return await this.officeHistoryRepository.update(id, officeHistoryDto);
     } catch (error) {
       new ResultException(error, HttpStatus.BAD_REQUEST);

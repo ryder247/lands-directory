@@ -54,14 +54,14 @@ export class LandFileEntity extends BaseEntity {
   @OneToMany(
     () => MinuteFileEntity,
     minute => minute.landFile,
-    { cascade: true, eager: true },
+    { cascade: true, eager: true, onDelete: 'CASCADE' },
   )
   minuteFiles: MinuteFileEntity[];
 
   @OneToMany(
     () => OfficeHistoryEntity,
     minute => minute.landFile,
-    { cascade: true, eager: true },
+    { cascade: true, eager: true, onDelete: 'CASCADE' },
   )
-  officeHistories: OfficeHistoryEntity;
+  officeHistories: OfficeHistoryEntity[];
 }

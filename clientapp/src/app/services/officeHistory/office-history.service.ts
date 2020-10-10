@@ -30,4 +30,8 @@ export class OfficeHistoryService {
   delete(id: string): Observable<any> {
     return this.http.delete(this.officeHistoryApi + '/' + id);
   }
+
+  deliver(id: string): Observable<any> {
+    return this.http.put(this.officeHistoryApi + '/deliver/' + id, null);
+  }
 }

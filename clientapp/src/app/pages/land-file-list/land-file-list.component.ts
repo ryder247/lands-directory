@@ -88,6 +88,10 @@ export class LandFileListComponent implements OnInit, AfterViewInit {
 
   gotoDetail(element): void {
     this.router.navigate(['view', element.id]);
+  } 
+  
+  gotoEdit(element): void {
+    this.router.navigate(['edit', element.id]);
   }
 
   remove(element): void {
@@ -96,7 +100,8 @@ export class LandFileListComponent implements OnInit, AfterViewInit {
       this.loading$.next(true);
       this.landsFileService.delete(element.id).subscribe(
         () => {
-          window.location.reload();
+          this.model = { ...this.route.snapshot.queryParams };
+          this.getLandFiles(this.model);
         },
         () => {
           this.loading$.next(false);

@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 import { LandsFileService } from '../../services/lands-file/lands-file.service';
 import { LandFileModel } from '../../models/land-file.model';
 import { environment } from '../../../environments/environment';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 import { OfficeHistoryService } from '../../services/officeHistory/office-history.service';
 
@@ -26,6 +25,7 @@ export class ViewLandFileComponent implements OnInit {
     private location: Location,
     private minutesService: MinutesService,
     private officeHistoryService: OfficeHistoryService,
+   
   ) {}
 
   safeUrl(url: string): any {
@@ -76,6 +76,23 @@ export class ViewLandFileComponent implements OnInit {
     if (pass === '54321') {
       this.loading$.next(true);
       this.officeHistoryService.delete(history.id).subscribe(
+        () => {
+          this.getLandFile();
+        },
+        () => {
+          this.loading$.next(false);
+        },
+      );
+    } else {
+      alert('Please contact admin to help you delete thanks.');
+    }
+  }
+  
+  deliverLandFile(history): void {
+    const pass = prompt('Enter password to delete?');
+    if (pass === '54321') {
+      this.loading$.next(true);
+      this.officeHistoryService.deliver(history.id).subscribe(
         () => {
           this.getLandFile();
         },

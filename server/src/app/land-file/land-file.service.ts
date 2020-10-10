@@ -5,13 +5,17 @@ import { ResultException } from '../../core/exceptions/result.exception';
 import { QueryModel } from '../../shared/query.model';
 import { SaveLandFileDto } from './dtos/save-land-file.dto';
 import { UpdateLandFileDto } from './dtos/update-land-file.dto';
-import { Contains } from 'class-validator';
+import { MinuteFileService } from '../minute-file/minute-file.service';
+import { OfficeHistoryService } from '../office-history/office-history.service';
 
 @Injectable()
 export class LandFileService {
   constructor(
     @InjectRepository(LandFileRepository)
     private readonly landFileRepository: LandFileRepository,
+    private readonly minutesService: MinuteFileService,
+    private readonly officeHistoryService: OfficeHistoryService
+
   ) {}
 
   public async getAll(queryModel: QueryModel) {
@@ -83,6 +87,16 @@ export class LandFileService {
 
   public async delete(id: string) {
     try {
+      var dbLandFile =  await this.landFileRepository.findOne(id);
+      
+      dbLandFile.minuteFiles.forEach(async (minute) => {
+        await this.minutesService.delete(minute.id);
+      });
+
+      dbLandFile.officeHistories.forEach(async (history) => {
+        await this.officeHistoryService.delete(history.id);
+      });
+
       return await this.landFileRepository.delete(id);
     } catch (error) {
       new ResultException(error, HttpStatus.BAD_REQUEST);
