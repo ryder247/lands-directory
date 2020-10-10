@@ -48,6 +48,9 @@ export class LandFileEntity extends BaseEntity {
   @Column({ type: 'varchar', length: 500, nullable: true })
   documentationDate: string;
 
+  @Column({ type: 'varchar', length: 500, nullable: true })
+  duplicate: string;
+
   @OneToMany(
     () => MinuteFileEntity,
     minute => minute.landFile,

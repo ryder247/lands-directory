@@ -48,10 +48,15 @@ export class UploadController {
       const landFiles = await this.uploadExcelEntries(file);
 
       landFiles.forEach(async (landFile: SaveLandFileDto) => {
-        const dbLandFile = await this.landFileService.getByFileNumber(
-          landFile.fileNumber,
+        const dbLandFile = await this.landFileService.getByRefNumber(
+          landFile.referenceNumber,
         );
-        if (!dbLandFile) await this.landFileService.save(landFile);
+        if (dbLandFile){
+          landFile.duplicate = "true";
+          await this.landFileService.save(landFile);
+        } else {
+          await this.landFileService.save(landFile);
+        }
       });
     }
 
@@ -94,20 +99,20 @@ export class UploadController {
     const rows = await excelFile(filePath);
     landFiles = rows.slice(1).map((column: any[]) => {
       return {
-        referenceNumber: column[0],
-        propertyNumber: column[1],
-        natureOfInstrument: column[2],
-        dateOfInstrument: column[3],
-        grantor: column[4],
-        grantee: column[5],
-        location: column[6],
-        acreage: column[7],
-        consideration: column[8],
-        purpose: column[9],
-        fileNumber: column[10],
-        termYears: column[11],
-        documentationDate: column[12],
-        shelfNumber: column[13],
+        referenceNumber: column[1],
+        propertyNumber: column[3],
+        natureOfInstrument: column[4],
+        dateOfInstrument: column[5],
+        grantor: column[6],
+        grantee: column[7],
+        location: column[8],
+        acreage: column[9],
+        consideration: column[11],
+        purpose: column[12],
+        fileNumber: column[13],
+        termYears: column[14],
+        documentationDate: column[16],
+        shelfNumber: column[17],
       } as SaveLandFileDto;
     });
 

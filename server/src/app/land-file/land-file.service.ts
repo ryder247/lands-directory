@@ -51,9 +51,9 @@ export class LandFileService {
     }
   }
 
-  public async getByFileNumber(fileNumber: string) {
+  public async getByRefNumber(referenceNumber: string) {
     try {
-      return await this.landFileRepository.findOne({ where: { fileNumber } });
+      return await this.landFileRepository.findOne({ where: { referenceNumber } });
     } catch (error) {
       new ResultException(error, HttpStatus.BAD_REQUEST);
     }
@@ -61,9 +61,10 @@ export class LandFileService {
 
   public async save(landFileDto: SaveLandFileDto) {
     try {
-      const dbLandFile = await this.getByFileNumber(landFileDto.fileNumber);
+      const dbLandFile = await this.getByRefNumber(landFileDto.referenceNumber);
       if (dbLandFile) {
-        new ResultException('Cannot save duplicate', HttpStatus.BAD_REQUEST);
+        landFileDto.duplicate = "true";
+        await this.landFileRepository.save(landFileDto);
       } else {
         await this.landFileRepository.save(landFileDto);
       }

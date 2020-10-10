@@ -37,4 +37,6 @@ export class SaveLandFileDto {
   shelfNumber: string;
   @ApiProperty()
   documentationDate: string;
+  @ApiProperty()
+  duplicate: string;
 }
