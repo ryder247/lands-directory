@@ -13,6 +13,8 @@ export class LandFileModel {
   location: string;
   shelfNumber: string;
   createdAt: string;
+  expires: string;
+  rent: string;
   minuteFiles: MinuteModel[];
   officeHistories: OfficeHistoryModel[];
 }

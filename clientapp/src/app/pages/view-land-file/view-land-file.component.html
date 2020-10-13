@@ -65,6 +65,12 @@
                   {{ landFile.acreage || '---' }}
                 </p>
               </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Expires</p>
+                <p class="font-weight-bold">
+                  {{ (landFile.expires | date) || '---' }}
+                </p>
+              </div>
             </div>
             <div class="col-md-6 col-sm-6">
               <div class="display-item">
@@ -107,6 +113,12 @@
                 <p class="p-0 m-0 title">Consideration</p>
                 <p class="font-weight-bold">
                   {{ landFile.consideration || '---' }}
+                </p>
+              </div>
+              <div class="display-item">
+                <p class="p-0 m-0 title">Rent</p>
+                <p class="font-weight-bold">
+                  {{ landFile.rent || '---' }}
                 </p>
               </div>
             </div>

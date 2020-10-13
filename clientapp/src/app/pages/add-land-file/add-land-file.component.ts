@@ -14,7 +14,8 @@ export class AddLandFileComponent implements OnInit {
   loading = new BehaviorSubject<boolean>(false);
   natureOfInstruments = [
     'CONVEYANCE', 'PRIVATE LEASE', 'GOVERNMENT LEASE', 'STOOL LEASE', 'JUGDEMENT', 'ASSIGNMENT', 'TRANSFER',
-    'CAVEAT', 'SUB-LEASE', 'DISCHARGE', 'MORTGAGE', 'FREEHOLD', 'DECLARATION', 'VESTING ASSENT', 'CERTIFICATE', 'LICENSE', 'CONCURRENCE', 'CONSENT',
+    'GIFT','VARIATION','CAVEAT', 'SUB-LEASE', 'DISCHARGE', 'MORTGAGE', 'FREEHOLD',
+    'DECLARATION', 'VESTING ASSENT', 'CERTIFICATE', 'LICENSE', 'CONCURRENCE', 'CONSENT',
   ];
   landFileId: any;
   constructor(
