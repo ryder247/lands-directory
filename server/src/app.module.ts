@@ -10,6 +10,7 @@ import { UploadModule } from './app/upload/upload.module';
 import { AppController } from './app.controller';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { AuthModule } from './app/auth/auth.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { join } from 'path';
     ActivityLogModule,
     CoreModule,
     UploadModule,
+    AuthModule,
   ],
   controllers: [AppController],
 })
