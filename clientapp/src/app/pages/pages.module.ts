@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { ViewLandFileComponent } from './view-land-file/view-land-file.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AddOfficeHistoryComponent } from './add-office-history/add-office-history.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AddOfficeHistoryComponent } from './add-office-history/add-office-histo
     AddMinuteFileComponent,
     ViewLandFileComponent,
     AddOfficeHistoryComponent,
+    UsersComponent,
   ],
   imports: [
     CommonModule,

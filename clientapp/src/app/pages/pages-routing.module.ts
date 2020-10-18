@@ -6,6 +6,7 @@ import { AddLandFileComponent } from './add-land-file/add-land-file.component';
 import { ViewLandFileComponent } from './view-land-file/view-land-file.component';
 import { AddMinuteFileComponent } from './add-minute-file/add-minute-file.component';
 import { AddOfficeHistoryComponent } from './add-office-history/add-office-history.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'officeAdd/:landFileId',
         component: AddOfficeHistoryComponent,
+      },
+      {
+        path: 'users',
+        component: UsersComponent,
       },
     ],
   },
