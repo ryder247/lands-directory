@@ -19,7 +19,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  @Roles('admin')
+  // @Roles('admin')
   public async login(@Res() res: Response): Promise<any> {
     const users = await this.userService.getAll();
     return res.status(HttpStatus.OK).json({
@@ -29,7 +29,7 @@ export class UserController {
   }
 
   @Put('/:id/approve')
-  @Roles('admin')
+  // @Roles('admin')
   public async approval(@Res() res: Response, @Param('id') id): Promise<any> {
     const user = await this.userService.approve(id);
     return res.status(HttpStatus.OK).json({
@@ -39,7 +39,7 @@ export class UserController {
   }
 
   @Put('/:id/passwordReset')
-  @Roles('admin')
+  // @Roles('admin')
   public async passwordReset(
     @Res() res: Response,
     @Param('id') id,

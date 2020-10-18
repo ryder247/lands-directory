@@ -14,7 +14,7 @@ export class AuthService {
 
   public async validate(email): Promise<User> {
     const user = await this.userService.getByEmail(email);
-    return user && user.approved ? user : null;
+    return user ? user : null;
   }
 
   public async validateUser(userData: {
