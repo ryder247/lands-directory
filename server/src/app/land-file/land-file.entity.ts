@@ -51,17 +51,23 @@ export class LandFileEntity extends BaseEntity {
   @Column({ type: 'varchar', length: 500, nullable: true })
   duplicate: string;
 
+  @Column({ type: 'varchar', length: 500, nullable: true })
+  rent: string;
+
+  @Column({ type: 'varchar', length: 500, nullable: true })
+  expires: string;
+
   @OneToMany(
     () => MinuteFileEntity,
     minute => minute.landFile,
-    { cascade: true, eager: true },
+    { cascade: true, eager: true, onDelete: 'CASCADE' },
   )
   minuteFiles: MinuteFileEntity[];
 
   @OneToMany(
     () => OfficeHistoryEntity,
     minute => minute.landFile,
-    { cascade: true, eager: true },
+    { cascade: true, eager: true, onDelete: 'CASCADE' },
   )
-  officeHistories: OfficeHistoryEntity;
+  officeHistories: OfficeHistoryEntity[];
 }

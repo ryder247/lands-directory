@@ -77,6 +77,20 @@ export class OfficeHistoryController {
     });
   }
 
+
+  @Put('/deliver/:id')
+  public async deliver(
+    @Res() res: Response,
+    @Param('id') id: string,
+   
+  ): Promise<any> {
+    const officeHistory = await this.officeHistoryService.deliver(id);
+    return res.status(HttpStatus.OK).json({
+      message: 'Office History deliverered successfully',
+      data: officeHistory,
+    });
+  }
+
   @Delete('/:id')
   public async delete(
     @Res() res: Response,

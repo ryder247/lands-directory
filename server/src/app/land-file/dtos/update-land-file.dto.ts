@@ -37,4 +37,8 @@ export class UpdateLandFileDto {
   shelfNumber: string;
   @ApiProperty()
   documentationDate: string;
+  @ApiProperty()
+  rent: string;
+  @ApiProperty()
+  expires: string;
 }

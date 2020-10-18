@@ -39,4 +39,8 @@ export class SaveLandFileDto {
   documentationDate: string;
   @ApiProperty()
   duplicate: string;
+  @ApiProperty()
+  rent: string;
+  @ApiProperty()
+  expires: string;
 }

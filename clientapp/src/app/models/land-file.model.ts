@@ -12,7 +12,9 @@ export class LandFileModel {
   purpose: string;
   location: string;
   shelfNumber: string;
-  documentationDate: string;
+  createdAt: string;
+  expires: string;
+  rent: string;
   minuteFiles: MinuteModel[];
   officeHistories: OfficeHistoryModel[];
 }

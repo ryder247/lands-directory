@@ -5,7 +5,6 @@ import { ResultException } from '../../core/exceptions/result.exception';
 import { QueryModel } from '../../shared/query.model';
 import { SaveLandFileDto } from './dtos/save-land-file.dto';
 import { UpdateLandFileDto } from './dtos/update-land-file.dto';
-import { Contains } from 'class-validator';
 
 @Injectable()
 export class LandFileService {
@@ -17,6 +16,7 @@ export class LandFileService {
   public async getAll(queryModel: QueryModel) {
     console.log('query', queryModel);
     try {
+
       const landfiles = await this.landFileRepository.find({
         relations: ['minuteFiles', 'officeHistories'],
         order: { createdAt: -1 },
@@ -45,6 +45,8 @@ export class LandFileService {
 
   public async getById(id: string) {
     try {
+      
+   
       return await this.landFileRepository.findOne(id);
     } catch (error) {
       new ResultException(error, HttpStatus.BAD_REQUEST);
@@ -83,6 +85,9 @@ export class LandFileService {
 
   public async delete(id: string) {
     try {
+     await this.landFileRepository.query(`DELETE FROM public."MinuteFileTable" WHERE "landFileId" = '${id}'`);
+     await this.landFileRepository.query(`DELETE FROM public."OfficeHistoryTable" WHERE "landFileId" = '${id}'`);
+
       return await this.landFileRepository.delete(id);
     } catch (error) {
       new ResultException(error, HttpStatus.BAD_REQUEST);
